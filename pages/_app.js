@@ -30,7 +30,7 @@ const GlobalStyle = ({ children }) => {
 
 const App = ({ Component, pageProps }) => {
   return (
-    <ChakraProvider theme={customTheme}>
+    <ChakraProvider theme={customTheme} resetCSS>
       <AuthProvider>
         <GlobalStyle />
         <Head>
