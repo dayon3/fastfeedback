@@ -6,7 +6,6 @@ import AddSiteModal from './AddSiteModal';
 const EmptyState = () => (
   <DashboardShell>
     <Flex
-      width="100%"
       backgroundColor="white"
       borderRadius="8px"
       p={16}
