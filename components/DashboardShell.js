@@ -31,6 +31,7 @@ const DashboardShell = ({ children }) => {
           maxW="1250px"
           margin="0 auto"
           w="full"
+          h="70px"
         >
           <Flex alignItems="center">
             <LogoIcon boxSize={12} mr={8} />

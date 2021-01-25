@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { mutate } from 'swr';
 import {
@@ -21,7 +20,6 @@ import { createSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
 
 const AddSiteModal = ({ children }) => {
-  const initialRef = useRef();
   const toast = useToast();
   const auth = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -69,7 +67,7 @@ const AddSiteModal = ({ children }) => {
         {children}
       </Button>
 
-      <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent as="form" onSubmit={handleSubmit(onCreateSite)}>
           <ModalHeader fontWeight="bold">Add Site</ModalHeader>
@@ -78,7 +76,6 @@ const AddSiteModal = ({ children }) => {
             <FormControl>
               <FormLabel>Name</FormLabel>
               <Input
-                ref={initialRef}
                 name="name"
                 ref={register({ required: true })}
                 placeholder="My site"
