@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import { ChakraProvider } from '@chakra-ui/react';
 import { Global, css } from '@emotion/react';
 
@@ -33,9 +32,6 @@ const App = ({ Component, pageProps }) => {
     <ChakraProvider theme={customTheme} resetCSS>
       <AuthProvider>
         <GlobalStyle />
-        <Head>
-          <title>Fast Feedback</title>
-        </Head>
         <Component {...pageProps} />
       </AuthProvider>
     </ChakraProvider>
