@@ -44,6 +44,7 @@ const Home = () => {
         </Link>
         {`. It's the easiest way to add comments or reviews to your static site. It's still a work-in-progress, but you can try it out by logging in.`}
       </Text>
+    
       {auth.user ? (
         <Button as="a" href="/dashboard">
           View Dashboard
