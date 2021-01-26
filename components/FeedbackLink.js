@@ -4,7 +4,7 @@ const FeedbackLink = ({ siteId }) => {
   return (
     <Flex justify="space-between" mb={8} w="full" mt={1}>
       <Link fontWeight="bold" fontSize="sm" href={`/p/${siteId}`}>
-        Leave a comment
+        Leave a comment →
       </Link>
       <Link fontSize="xs" color="gray.500" href="/">
         Powered by Fast Feedback
