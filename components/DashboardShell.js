@@ -24,7 +24,9 @@ const DashboardShell = ({ children }) => {
         >
           <Flex alignItems="center">
             <NextLink href="/" passHref>
-              <LogoIcon boxSize={12} mr={8} />
+              <Link>
+                <LogoIcon boxSize={12} mr={8} />
+              </Link>
             </NextLink>
             <NextLink href="/dashboard" passHref>
               <Link mr={4}>Sites</Link>

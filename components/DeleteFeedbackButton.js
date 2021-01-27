@@ -14,7 +14,7 @@ import { DeleteIcon } from '@chakra-ui/icons';
 import { deleteFeedback } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
 
-const RemoveButton = ({ feedbackId }) => {
+const DeleteFeedbackButton = ({ feedbackId }) => {
   const [isOpen, setIsOpen] = useState(false);
   const cancelRef = useRef();
   const auth = useAuth();
@@ -75,4 +75,4 @@ const RemoveButton = ({ feedbackId }) => {
   );
 };
 
-export default RemoveButton;
+export default DeleteFeedbackButton;
