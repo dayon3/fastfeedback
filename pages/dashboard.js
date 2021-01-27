@@ -6,6 +6,7 @@ import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import SiteTable from '@/components/SiteTable';
 import fetcher from '@/utils/fetcher';
 import { useAuth } from '@/lib/auth';
+import SiteTableHeader from '@/components/SiteTableHeader';
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -14,12 +15,14 @@ const Dashboard = () => {
   if (!data) {
     return (
       <DashboardShell>
+        <SiteTableHeader />
         <SiteTableSkeleton />
       </DashboardShell>
     );
   }
   return (
     <DashboardShell>
+      <SiteTableHeader />
       {data.sites ? <SiteTable sites={data.sites} /> : <EmptyState />}
     </DashboardShell>
   );
