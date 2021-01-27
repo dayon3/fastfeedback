@@ -51,6 +51,7 @@ const SiteFeedback = ({ initialFeedback }) => {
       provider: auth.user.provider,
       status: 'pending'
     };
+    inputEl.current.value = '';
 
     setAllFeedback([newFeedback, ...allFeedback]);
     createFeedback(newFeedback);
