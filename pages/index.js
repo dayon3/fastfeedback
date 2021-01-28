@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Button, Flex, Link, Stack, Text } from '@chakra-ui/react';
+import { Button, Flex, Link, Text } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
 import LogoIcon from '@/components/custom/LogoIcon';
@@ -13,10 +13,9 @@ const Home = () => {
     <Flex
       as="main"
       direction="column"
-      align="center"
       justify="center"
       h="100vh"
-      maxW="400px"
+      maxW="700px"
       margin="0 auto"
     >
       <Head>
@@ -32,7 +31,7 @@ const Home = () => {
         <title>Fast Feedback</title>
       </Head>
       <LogoIcon boxSize={14} mb={2} />
-      <Text mb={4} fontSize="lg" p={6}>
+      <Text mb={8} fontSize="lg">
         <Text as="span" fontWeight="bold" display="inline">
           Fast Feedback
         </Text>
@@ -65,13 +64,16 @@ const Home = () => {
           View Dashboard
         </Button>
       ) : (
-        <Stack>
+        <Flex>
           <Button
             onClick={(e) => auth.signinWithGitHub()}
             leftIcon={<GitHubIcon />}
             size="lg"
             fontWeight="medium"
+            fontSize="1rem"
             mt={4}
+            mr={4}
+            borderRadius="0.25rem"
             backgroundColor="gray.900"
             color="white"
             _hover={{ bg: 'gray.700' }}
@@ -87,8 +89,10 @@ const Home = () => {
             onClick={(e) => auth.signinWithGoogle()}
             leftIcon={<GoogleIcon />}
             size="lg"
+            fontSize="1rem"
             fontWeight="medium"
             mt={4}
+            borderRadius="0.25rem"
             backgroundColor="white"
             color="gray.900"
             variant="outline"
@@ -100,7 +104,7 @@ const Home = () => {
           >
             Sign in with Google
           </Button>
-        </Stack>
+        </Flex>
       )}
     </Flex>
   );
