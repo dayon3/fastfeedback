@@ -13,7 +13,7 @@ const SiteTable = ({ sites }) => {
           <Th>Site Link</Th>
           <Th>Feedback Link</Th>
           <Th>Date Added</Th>
-          <Th>{''}</Th>
+          <Th width="50px">{''}</Th>
         </Tr>
       </thead>
       <tbody>

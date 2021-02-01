@@ -6,15 +6,20 @@ import { useAuth } from '@/lib/auth';
 import LogoIcon from './custom/LogoIcon';
 
 const DashboardShell = ({ children }) => {
-  const { user, signout } = useAuth();
+  const { user } = useAuth();
 
   return (
-    <Box backgroundColor="gray.100" h="100vh">
-      <Flex backgroundColor="white" mb={16} w="full">
+    <Box backgroundColor="gray.100" minHeight="100vh" mb={12}>
+      <Flex
+        backgroundColor="white"
+        mb={16}
+        w="full"
+        borderTop="5px solid #0AF5F4"
+      >
         <Flex
-          alignItems="center"
+          align="center"
           backgroundColor="white"
-          justifyContent="space-between"
+          justify="space-between"
           py={4}
           px={8}
           maxW="1250px"
@@ -22,7 +27,7 @@ const DashboardShell = ({ children }) => {
           w="full"
           h="70px"
         >
-          <Flex alignItems="center">
+          <Flex align="center">
             <NextLink href="/" passHref>
               <Link>
                 <LogoIcon boxSize={12} mr={8} />
@@ -35,11 +40,13 @@ const DashboardShell = ({ children }) => {
               <Link>Feedback</Link>
             </NextLink>
           </Flex>
-          <Flex alignItems="center" justifyContent="center">
+          <Flex align="center" justify="center">
             {user && (
-              <Button variant="ghost" mr={2} onClick={() => signout()}>
-                Log Out
-              </Button>
+              <NextLink href="/account" passHref>
+                <Button variant="ghost" mr={2}>
+                  Account
+                </Button>
+              </NextLink>
             )}
             <Avatar size="sm" src={user?.photoUrl} />
           </Flex>
