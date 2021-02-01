@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 
 import Feedback from '@/components/Feedback';
 import { useAuth } from '@/lib/auth';
-import { getAllFeedback, getAllSites } from '@/lib/db-admin';
 import { createFeedback } from '@/lib/db';
+import { getAllFeedback, getAllSites } from '@/lib/db-admin';
 
 export async function getStaticProps(context) {
   const siteId = context.params.siteId;
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 
@@ -64,19 +64,28 @@ const SiteFeedback = ({ initialFeedback }) => {
       w="full"
       maxW="700px"
       margin="0 auto"
+      mt={8}
     >
-      <Box as="form" onSubmit={onSubmit}>
-        <FormControl my={8}>
-          <FormLabel htmlFor="comment">Comment</FormLabel>
-          <Input ref={inputEl} type="comment" id="comment" />
-          <Button mt={3} type="submit" fontWeight="medium">
-            Add Comment
-          </Button>
-        </FormControl>
-      </Box>
-      {allFeedback.map((feedback) => (
-        <Feedback key={feedback.id} {...feedback} />
-      ))}
+      {auth.user && (
+        <Box as="form" onSubmit={onSubmit}>
+          <FormControl my={8}>
+            <FormLabel htmlFor="comment">Comment</FormLabel>
+            <Input ref={inputEl} type="comment" id="comment" />
+            <Button
+              mt={4}
+              type="submit"
+              fontWeight="medium"
+              isDisabled={router.isFallback}
+            >
+              Add Comment
+            </Button>
+          </FormControl>
+        </Box>
+      )}
+      {allFeedback &&
+        allFeedback.map((feedback) => (
+          <Feedback key={feedback.id} {...feedback} />
+        ))}
     </Box>
   );
 };
